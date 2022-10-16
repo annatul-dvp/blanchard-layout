@@ -1,4 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
+
   //Choices.js
   const element = document.querySelector('.gallery__select-list');
   const choices = new Choices(element, {
@@ -37,10 +38,6 @@ document.addEventListener('DOMContentLoaded', function() {
     pagination: {
       el: '.gallery-slider__pagination',
       type: 'fraction',
-    },
-
-    zoom: {
-      maxRatio: 1.5,
     },
 
     a11y: {
@@ -142,14 +139,35 @@ document.addEventListener('DOMContentLoaded', function() {
     myMap.geoObjects.add(myPlacemark);
   }
 
-  /*Catalog. Display*/
+  /*Catalog. Active block */
 
+  function activateTabsBlock() {
+    let catalogBlocks = document.querySelectorAll('.catalog-list-item__btn');
+    catalogBlocks.forEach((e) => {
+      e.parentNode.classList.remove('catalog-list__item_active');
+      if(e.classList.contains('ui-accordion-header-active') || e.classList.contains('ui-state-active')){
+        e.parentNode.classList.add('catalog-list__item_active');
+      }
+    });
+  }
+  
+  activateTabsBlock();
+
+  let catalogsItems = document.querySelectorAll('.catalog-list__item');
+  
+  catalogsItems.forEach((e) => {
+    e.addEventListener('click', (el) => {
+      activateTabsBlock();
+    });
+  });
+
+
+  /*Catalog. Display*/
   let catalogTabBtnsList = document.querySelectorAll('.catalog-list-item-inf-list-item__link');
   let catalogTabItemsList = document.querySelectorAll('.catalog__display');
 
 
   catalogTabBtnsList.forEach((element) => {
-    // console.log(e.getAttribute('href'));
     element.addEventListener('click', (el) => {
       const path = el.currentTarget.dataset.path;
       
@@ -171,7 +189,7 @@ document.addEventListener('DOMContentLoaded', function() {
     let dates = document.createElement('p');
     let imgInf = document.createElement('p');
     let closeBtn = document.createElement('button');
-    let closeBtnImg = document.createElement('img');
+    // let closeBtnImg = document.createElement('img');
 
     modalWindow.classList.add('modal-window');
     img.classList.add('modal-window__img');
@@ -184,26 +202,24 @@ document.addEventListener('DOMContentLoaded', function() {
     closeBtn.classList.add('modal-window__close-btn');
 
     img.src = '/imgs/gallery/gallery-2-zoom.jpg'; 
-    closeBtnImg.src = '/imgs/icons/close-btn.svg';
+    // closeBtnImg.src = '/imgs/icons/close-btn.svg';
     name.innerHTML = 'Казимир Малевич';
     imgName.innerHTML = '«Женщина с граблями»';
     dates.innerHTML = '1931–1932';
     imgInf.innerHTML = 'Картина из второй серии крестьянского цикла работ Казимира Малевича. Художник принялся за её создание в 1930–1931 годах, после того, как первый цикл был утерян после Берлинской и Варшавской выставок в 1927 году.';
 
     closeBtn.addEventListener('click', (btn) => {
-      if (confirm('Вы уверены?')){ 
-        let openedModalWindow = document.querySelector('.modal-window');
-        openedModalWindow.remove();
-      }
+      let openedModalWindow = document.querySelector('.modal-window');
+      openedModalWindow.remove();
     });
+
+    // closeBtn.append(closeBtnImg);
 
     infBlock.append(name);
     infBlock.append(imgName);
     infBlock.append(dates);
     infBlock.append(imgInf);
-    infBlock.append(closeBtn);
-
-    closeBtn.append(closeBtnImg);
+    infBlock.append(closeBtn);    
 
     modalWindow.append(img);
     modalWindow.append(infBlock);
@@ -220,7 +236,6 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   let galaryModalsBtn = document.querySelectorAll('.gallery-slider-wrapper__slide');
-  // let galleryBlock = document.querySelector('.gallery');
   let body = document.querySelector('body');
 
   galaryModalsBtn.forEach((el) => {
@@ -231,9 +246,19 @@ document.addEventListener('DOMContentLoaded', function() {
       });
       let modalWindow = createModalWindow();
       body.append(modalWindow.modalWindow);
-      console.log('Нажата');
     });
   });
+
+  /*Validation style */
+  let feedbackBtn = document.querySelector('.feedback-form__btn');
+
+  feedbackBtn.addEventListener('click', () => {
+    let inputWithError = document.querySelectorAll('.js-validate-error-field');
+
+    inputWithError.forEach((e) => {
+     console.log(e);
+    });
+  })
 
 });
 

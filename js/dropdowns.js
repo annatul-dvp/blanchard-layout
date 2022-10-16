@@ -9,8 +9,8 @@ document.querySelectorAll(".dropdown__simplebar").forEach(dropdown => {
 const btns = document.querySelectorAll(".menu__btn");
 const dropdowns = document.querySelectorAll(".dropdown");
 
-console.log(btns);
-console.log(dropdowns);
+// console.log(btns);
+// console.log(dropdowns);
 const activeClassdropdowns = "dropdown__active";
 const activeClassbtns = "btn__active";
 
