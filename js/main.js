@@ -249,16 +249,5 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   });
 
-  /*Validation style */
-  let feedbackBtn = document.querySelector('.feedback-form__btn');
-
-  feedbackBtn.addEventListener('click', () => {
-    let inputWithError = document.querySelectorAll('.js-validate-error-field');
-
-    inputWithError.forEach((e) => {
-     console.log(e);
-    });
-  })
-
 });
 

@@ -4,26 +4,21 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://unpkg.com/@csstools/normalize.css" rel="stylesheet"/>
 
   <!--Slider-->
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"
-  />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
   <script defer src="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.js"></script>
+
   <!--Coices.js-->
-  <link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css"
-  />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css"/>
   <script defer src="https://cdn.jsdelivr.net/npm/choices.js/public/assets/scripts/choices.min.js"></script>
 
   <!--Map-->
-  <script defer src="https://api-maps.yandex.ru/2.1/?apikey=ваш API-ключ&lang=ru_RU" type="text/javascript">
-  </script>
+  <script defer src="https://api-maps.yandex.ru/2.1/?apikey=вашAPI-ключ&lang=ru_RU"></script>
 
   <!--Simple Bar-->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simplebar/5.3.6/simplebar.min.css" integrity="sha512-uZTwaYYhJLFXaXYm1jdNiH6JZ1wLCTVnarJza7iZ1OKQmvi6prtk85NMvicoSobylP5K4FCdGEc4vk1AYT8b9Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/simplebar/5.3.6/simplebar.min.css" integrity="sha512-uZTwaYYhJLFXaXYm1jdNiH6JZ1wLCTVnarJza7iZ1OKQmvi6prtk85NMvicoSobylP5K4FCdGEc4vk1AYT8b9Q==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
   <script defer src="https://cdnjs.cloudflare.com/ajax/libs/simplebar/5.3.6/simplebar.min.js" integrity="sha512-rn0CaCtyheymRT43p0ZuFH0SvNriLU5cuJpY2f4IcyLrbHzJdsIF1dygi9oNha1BhHagO8U+h2xRWCosYf9gCg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 
   <!--Accordion-->
@@ -42,9 +37,9 @@
 
   <!--Project's files-->
   <link rel="stylesheet" href="css/styles.css">
-  <script defer type="text/javascript" src="js/main.js"></script>
-  <script defer type="text/javascript" src="js/dropdowns.js"></script>
-  <script defer type="text/javascript" src="js/validation.js"></script>
+  <script defer src="js/main.js"></script>
+  <script defer src="js/dropdowns.js"></script>
+  <script defer src="js/validation.js"></script>
 
   <title>Blanchard. Художественная галерея</title>
 </head>
@@ -253,13 +248,13 @@
           </div>
         </li>
       </ul>    
-      <a class="link menu__search">
+      <div class="menu__search">
         <svg class="menu-search__img" width="23" height="22" viewBox="0 0 23 22" fill="none" xmlns="http://www.w3.org/2000/svg">
           <rect width="6.8678" height="1.71695" transform="matrix(-0.718931 0.695081 0.718931 0.695081 4.9375 15.6534)" fill="white"/>
           <path fill-rule="evenodd" clip-rule="evenodd" d="M12.0967 18C7.53016 18 3.99668 14.3229 3.99668 10C3.99668 5.67715 7.53016 2 12.0967 2C16.6632 2 20.1967 5.67715 20.1967 10C20.1967 14.3229 16.6632 18 12.0967 18ZM12.0967 20C6.57383 20 2.09668 15.5228 2.09668 10C2.09668 4.47715 6.57383 0 12.0967 0C17.6195 0 22.0967 4.47715 22.0967 10C22.0967 15.5228 17.6195 20 12.0967 20Z" fill="white"/>
         </svg>
         <input class="text-style menu-search__txt" type="text" placeholder="Поиск по сайту">
-      </a>
+      </div>
     </div>
     <div class="container hero"> <!--HERO PART-->
       <h1 class="text-style hero__headline">Прикоснитесь к прекрасному</h1>
@@ -409,7 +404,7 @@
     </p>
     <div class="catalog__display catalog__display_active"  data-target="drawer1">
       <picture class="catalog-display__img"> <!--Photo of artist-->
-        <source src="imgs/catalog/drawer1.jpg">
+        <source srcset="imgs/catalog/drawer1.jpg">
         <img src="imgs/catalog/drawer1.jpg" alt="Портрет Доменико Гирландайо">
       </picture>
       <h3 class="h3 text-style catalog-display__name">Доменико Гирландайо</h3>
@@ -420,7 +415,7 @@
     </div>
     <div class="catalog__display" data-target="unknown-drawer">
       <picture class="catalog-display__img"> <!--Photo of artist-->
-        <source src="imgs/catalog/drawer-x.jpg">
+        <source srcset="imgs/catalog/drawer-x.jpg">
         <img src="imgs/catalog/drawer-x.jpg" alt="Нет информации о данном художнике">
       </picture>
       <h3 class="h3 text-style catalog-display__name">Что мы о нём знаем?</h3>
@@ -790,10 +785,10 @@
     </div>
     <form class="feedback__form"> <!--Form for feedback-->
       <label for="name" class="feedback-form__name">
-        <input class="input text-style feedback-form-name__input" type="text" placeholder="Имя*" data-validate-field="name">
+        <input id="name" class="input text-style feedback-form-name__input" type="text" placeholder="Имя*" data-validate-field="name">
       </label>
       <label for="tel" class="feedback-form__tel">
-        <input class="input text-style feedback-form-tel__input" type="tel" placeholder="Телефон*" data-validate-field="tel">
+        <input id="tel" class="input text-style feedback-form-tel__input" type="tel" placeholder="Телефон*" data-validate-field="tel">
       </label>      
       <button class="btn text-style feedback-form__btn">Заказать обратный звонок</button>
     </form>
