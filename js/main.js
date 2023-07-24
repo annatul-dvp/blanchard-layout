@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
 
   //Choices.js
-  const element = document.querySelector('.gallery__select-list');
+  const element = document.querySelector('.gallery__filter-list');
   const choices = new Choices(element, {
     searchEnabled: false,
   });
@@ -31,12 +31,12 @@ document.addEventListener('DOMContentLoaded', function() {
     speed: 500,  
 
     navigation: {
-      nextEl: '.gallery-slider__button-next',
-      prevEl: '.gallery-slider__button-prev',
+      nextEl: '.gallery-swiper__button-next',
+      prevEl: '.gallery-swiper__button-prev',
     },
 
     pagination: {
-      el: '.gallery-slider__pagination',
+      el: '.gallery-swiper__pagination',
       type: 'fraction',
     },
 
@@ -142,18 +142,18 @@ document.addEventListener('DOMContentLoaded', function() {
   /*Catalog. Active block */
 
   function activateTabsBlock() {
-    let catalogBlocks = document.querySelectorAll('.catalog-list-item__btn');
+    let catalogBlocks = document.querySelectorAll('.catalog-item-block__btn');
     catalogBlocks.forEach((e) => {
-      e.parentNode.classList.remove('catalog-list__item_active');
+      e.parentNode.classList.remove('catalog__item_active');
       if(e.classList.contains('ui-accordion-header-active') || e.classList.contains('ui-state-active')){
-        e.parentNode.classList.add('catalog-list__item_active');
+        e.parentNode.classList.add('catalog__item_active');
       }
     });
   }
   
   activateTabsBlock();
 
-  let catalogsItems = document.querySelectorAll('.catalog-list__item');
+  let catalogsItems = document.querySelectorAll('.catalog__item');
   
   catalogsItems.forEach((e) => {
     e.addEventListener('click', (el) => {
@@ -235,7 +235,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
   }
 
-  let galaryModalsBtn = document.querySelectorAll('.gallery-slider-wrapper__slide');
+  let galaryModalsBtn = document.querySelectorAll('.gallery-swiper__slide');
   let body = document.querySelector('body');
 
   galaryModalsBtn.forEach((el) => {
