@@ -1,5 +1,8 @@
 document.addEventListener('DOMContentLoaded', function() {
 
+  /*TabIndexes */
+  document.querySelectorAll('.simplebar-content-wrapper').forEach((e) => {e.tabIndex = -1});
+
   //Choices.js
   const element = document.querySelector('.gallery__filter-list');
   const choices = new Choices(element, {
@@ -50,7 +53,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
   /*Slider in events' block*/
-  const eventsSwiper = new Swiper('.events__slider', {
+  const eventsSwiper = new Swiper('.events-slider', {
     // Optional parameters
     slidesPerView: 3,//'auto',
     direction: 'horizontal',
@@ -79,15 +82,15 @@ document.addEventListener('DOMContentLoaded', function() {
     },
   });
 
-  const projectsSwiper = new Swiper('.projects__slider', {
+  const projectsSwiper = new Swiper('.projects-slider', {
     // Optional parameters
     slidesPerView: 3,
     direction: 'horizontal',
     spaceBetween: 50,
     speed: 500,  
     navigation: {
-      nextEl: '.projects-slider__button-next',
-      prevEl: '.projects-slider__button-prev',
+      nextEl: '.projects__button-next',
+      prevEl: '.projects__button-prev',
     },
 
     a11y: {
@@ -104,7 +107,7 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 
   /*Tooltip Tippy */
-  tippy('.projects-txt__tooltip',{
+  tippy('.exclamation-point-tooltip',{
     animation: 'scale',
     theme: "custom",
 
